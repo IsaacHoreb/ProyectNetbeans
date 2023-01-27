@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a8c6477-9542-4016-92c9-cdeac6743a86">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     books.`id` AS books_id,
+     books.`title` AS books_title,
+     books.`date` AS books_date,
+     books.`author` AS books_author,
+     books.`category` AS books_category,
+     books.`edit` AS books_edit,
+     books.`lang` AS books_lang,
+     books.`pages` AS books_pages,
+     books.`description` AS books_description,
+     books.`ejemplares` AS books_ejemplares,
+     books.`stock` AS books_stock,
+     books.`available` AS books_available
+FROM
+     `books` books]]>
+	</queryString>
+	<field name="books_id" class="java.lang.Integer"/>
+	<field name="books_title" class="java.lang.String"/>
+	<field name="books_date" class="java.lang.String"/>
+	<field name="books_author" class="java.lang.String"/>
+	<field name="books_category" class="java.lang.String"/>
+	<field name="books_edit" class="java.lang.String"/>
+	<field name="books_lang" class="java.lang.String"/>
+	<field name="books_pages" class="java.lang.String"/>
+	<field name="books_description" class="java.lang.String"/>
+	<field name="books_ejemplares" class="java.lang.String"/>
+	<field name="books_stock" class="java.lang.Integer"/>
+	<field name="books_available" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="192" y="18" width="212" height="39" uuid="b027cd76-d376-4c07-b479-e7f22fec77f9"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTES PDF]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="455" y="57" width="100" height="20" uuid="93c84ca4-6ce2-4bf3-b97a-b334ccbe98c3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="2" width="24" height="20" uuid="e259193b-ea83-4182-8c98-9614ed44762b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="2" width="100" height="20" uuid="95f6bcfc-84ac-4f8b-8529-433ad5848973"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Titles]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="2" width="100" height="20" uuid="e6f0e1ba-984c-45c9-91bf-be9095770264"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Author]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="0" width="100" height="20" uuid="d1e9ad50-fb4d-4454-b416-bbf3d3463c2f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Category]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="24" y="6" width="24" height="20" uuid="0ecd87e6-96e2-460e-b66f-2736002a3999"/>
+				<textFieldExpression><![CDATA[$F{books_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="6" width="100" height="20" uuid="022e581f-8886-476e-a32f-9b7fe1fac5fc"/>
+				<textFieldExpression><![CDATA[$F{books_title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="223" y="8" width="100" height="20" uuid="9caf5ef2-212f-46df-914d-043521bdb1a0"/>
+				<textFieldExpression><![CDATA[$F{books_author}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="6" width="100" height="20" uuid="f02c48d2-f7e6-46da-9aaf-b2c36cf77b66"/>
+				<textFieldExpression><![CDATA[$F{books_category}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="134" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="43" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="503" y="23" width="100" height="20" uuid="43a5d719-e5d9-4a07-882e-1c4ea9a130eb"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
